@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>File Statistic</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/basicmvc.css" />
+</head>
+<body>
+    <a class="top_level_href" href="/">Root</a>
+    <a class="top_level_href" href="/api">REST</a>
+    <h1>
+        File Statistic
+    </h1>
+    <table>
+        <thead><tr>
+            <th>Id</th>
+            <th>File Name</th>
+            <th>Longest Word</th>
+            <th>Shortest Word</th>
+            <th>Average Word</th>
+            <th>Line Length</th>
+        </tr></thead>
+        <tbody><tr th:each="fs : ${fileStatistic}">
+            <td th:text="${fs.id}">Id</td>
+            <td class="filename"><a th:text="${fs.fileName}" th:href="@{/lineStatistic/{fileId}(fileId=${fs.id})}" href="">File Name</a></td>
+            <td th:text="${fs.longestWord}">Longest Word</td>
+            <td th:text="${fs.shortestWord}">Shortest Word</td>
+            <td th:text="${fs.averageWord}">Average Word</td>
+            <td th:text="${fs.lineLength}">Line Length</td>
+        </tr></tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Line Statistic</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/basicmvc.css" />
+</head>
+<body>
+    <a class="top_level_href" href="/">Root</a>
+    <a class="top_level_href" href="/api">REST</a>
+    <a class="top_level_href" href="/fileStatistic">File Statistic</a>
+    <h1>
+        Line Statistic
+    </h1>
+    <table>
+        <thead><tr>
+            <th>Id</th>
+            <th>File Id</th>
+            <th>Longest Word</th>
+            <th>Shortest Word</th>
+            <th>Average Word</th>
+            <th>Line Length</th>
+        </tr></thead>
+        <tbody><tr th:each="ls : ${lineStatistic}">
+            <td th:text="${ls.id}">Id</td>
+            <td th:text="${ls.fileId}">File Id</td>
+            <td th:text="${ls.longestWord}">Longest Word</td>
+            <td th:text="${ls.shortestWord}">Shortest Word</td>
+            <td th:text="${ls.averageWord}">Average Word</td>
+            <td th:text="${ls.lineLength}">Line Length</td>
+        </tr></tbody>
+    </table>
+</body>
+</html>
